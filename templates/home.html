@@ -1,0 +1,116 @@
+
+{% extends 'main.html' %}
+{% block content%}
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+        {%for message in messages %}
+
+                {% if message=="Next Question" %}
+                <div class="row align-items-center justify-content-center">
+
+                        <div class="col-md-6 col-xs-10 alert alert-success" role="alert">
+                                {% if good_answer %}
+                                Good Answer :) </br>
+                                {% endif %}
+                                {% if not good_answer %}
+                                Bad Answer :( </br>
+                                {% endif %}
+                                <strong>{{message}}</strong> </br>  Current score: {{score}}
+
+                        </div>
+                </div>
+
+                {% elif message=="Bad Answer" %}
+                <div class="row align-items-center justify-content-center">
+
+                        <div class="col-md-6 alert alert-warning" role="alert">
+                                <strong>Answer: {{user_answer}} is: {{message}} </strong>
+                        </div>
+                </div>
+                {% elif message=="" %}
+                <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 alert alert-warning" role="alert">
+                Empty answer is bad answer, minus one point. Sorry...
+                </div>
+                </div>
+                {% elif message=="User already in leaderboard"%}
+                <div class="row align-items-center justify-content-center">
+
+                        <div class="col-md-6 alert alert-warning" role="alert">
+                                <strong>{{message}}</strong>
+                        </div>
+                </div>
+                {% elif message=="" %}
+
+                {% endif %}
+        {% endfor%}
+{% endif %}
+
+<form style="background-color: #ffffff36;" method="POST" name="sentAnswer" id="Answer" class="form-row align-items-center justify-content-center">
+        <div class="form-group col-md-6 ">
+
+                        {% if question_number<last_question-1 %}
+                <h6 style="color: deepskyblue;" >Current question: {{question_number+1}}</h6>
+                {% else %}
+                <h2>Activity Finished </h2>
+                <h4>Your score is: {{score}}</h4>
+
+                <a class="btn btn-primary "  href="{{ url_for('reset') }}">restart</a>
+                {% endif %}
+
+                <h5>{{question}} </h5>
+
+                <p></p>
+                {% if question_number!=last_question-1 %}
+                <input class="form-control" placeholder="Enter your answer" name="answer">
+                <p></p>
+
+                <input type="submit" value="Confirm" class="btn btn-primary">
+                {% endif %}
+        </div>
+
+        </div>
+
+<br>
+</form>
+
+
+<div class="row align-items-center justify-content-center">
+<div class="col-md-6 " >
+<div class="card" style="background-color: #000000d4;">
+        <div class="card-body" style="color: #ffc107;">
+                <h4 class="card-title">Live Leaderboard:</h4>
+
+                Current winner is:
+              <b style="color: seagreen">{{ winner[0] }}</b>
+                <br>
+
+                {% for user, score in users %}
+
+                {% if user==user_name %}
+                <b> {{ users.index( [user,score] )+1 }}</b> .
+                <b> {{user}} {{score}} </b>
+                <br>
+                {% endif %}
+
+                {% if user!=user_name %}
+                {{ users.index( [user,score] )+1 }} .
+                {{  user }}
+                {{ score }}
+                <br>
+                {% endif %}
+
+                {% endfor %}
+
+
+
+                <p class="card-text"></p>
+        </div>
+</div>
+</div>
+</div>
+
+{% endwith %}
+{% endblock content%}
