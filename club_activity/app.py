@@ -7,7 +7,7 @@ app.secret_key = 'secret'
 all_users = []
 ranking = []
 
-with open("cs_question/questions.json", "r") as json_data:
+with open("/home/ubuntu/club_activity/club_activity/cs_question/questions.json", "r") as json_data:
     questions = json.load(json_data)
 
 
@@ -126,4 +126,3 @@ def about():
 
 if __name__ == '__main__':
     app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True, threaded=True)
-
