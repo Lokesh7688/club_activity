@@ -1,6 +1,6 @@
 from flask import json
 
-with open("cs_question/questions.json", "r") as json_data:
+with open("/home/ubuntu/club_activity/club_activity/cs_question/questions.json", "r") as json_data:
     questions = json.load(json_data)
 
 points = 0
@@ -93,4 +93,3 @@ def lb_position(player_name, user_list):
     for i in range(0, my_list_len):
         if user_list[i][0] == player_name:
             return i
-
