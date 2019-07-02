@@ -1,0 +1,44 @@
+.masthead {
+  position: relative;
+  width: 100%;
+  height: 200vh;
+  min-height: 35rem;
+  padding: 10rem 0;
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url('../img/img.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+h1
+{
+  color:hsl(0, 0%, 100%);
+
+}
+h2{
+  color:rgb(202, 202, 202);
+}
+a:hover {
+  color: #ffe69a;
+  text-decoration: none;
+}
+a {
+  color: #ffc107;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+body {
+  background-color: rgb(0, 0, 0);
+}
+
+.active2 {
+  color:#94ff9f !important
+}
+
+footer.text-white {
+  position: relative;
+  /* bottom: 0; */
+  text-align: center;
+  padding: 10px;
+}

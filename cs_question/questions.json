@@ -1,0 +1,23 @@
+[
+    {
+        "question": "list = ['cse-club']\nprint('list')",
+        "answer": "cse-club"
+    },
+    {
+        "question": "2*2",
+        "answer": "4"
+    },
+    {
+        "question": "complete the following :\n list = ['lokesh','shashi','kratu','Rahul','arvind'] \n ___ i in list:\nprint(i)",
+        "answer": "for"
+    },
+    {
+        "question": "-9+5-7 = ?",
+        "answer": "-11"
+    },
+    {
+        "question":"Well done :-)",
+        "answer": "bootstrap"
+    }
+    
+]
